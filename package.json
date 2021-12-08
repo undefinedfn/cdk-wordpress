@@ -1,24 +1,32 @@
 {
-  "name": "serverless-database",
-  "version": "0.1.0",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.10",
-    "@types/node": "10.17.27",
-    "aws-cdk-lib": "2.0.0",
-    "constructs": "^10.0.0",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
-    "typescript": "~3.9.7"
-  },
-  "peerDependencies": {
-    "aws-cdk-lib": "2.0.0",
-    "constructs": "^10.0.0"
-  }
+    "name": "serverless-database",
+    "version": "0.1.0",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "clean": "./node_modules/.bin/rimraf lib coverage test-reports && node -e \"console.log('removed lib coverage test-reports')\"",
+        "build": "tsc",
+        "watch": "tsc -w",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.10",
+        "@types/node": "10.17.27",
+        "aws-cdk-lib": "^2.0.0",
+        "constructs": "^10.0.0",
+        "jest": "^26.4.2",
+        "jest-junit": "^13.0.0",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^26.2.0",
+        "typescript": "~3.9.7"
+    },
+    "peerDependencies": {
+        "aws-cdk-lib": "2.0.0",
+        "constructs": "^10.0.0"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "trailingComma": "all",
+        "printWidth": 140
+    }
 }
