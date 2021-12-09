@@ -8,9 +8,6 @@ on:
 
 jobs:
     build:
-        defaults:
-            run:
-                working-directory: ./
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
@@ -24,15 +21,12 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm ci
-            - run: npm run lint
             - run: npm run build
+            - run: npm run test
         # TODO - tests
         # - run: npm test
 
     package:
-        defaults:
-            run:
-                working-directory: ./
         needs: [build]
         runs-on: ubuntu-18.04
         steps:
