@@ -1,5 +1,5 @@
 {
-    "name": "@undefinedfn/serverless-database",
+    "name": "@undefinedfn/cdk-wordpress",
     "version": "0.1.0",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -28,5 +28,9 @@
         "tabWidth": 4,
         "trailingComma": "all",
         "printWidth": 140
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/undefinedfn/cdk-wordpress"
     }
 }
