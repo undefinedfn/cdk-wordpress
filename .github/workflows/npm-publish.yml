@@ -38,7 +38,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: package
-                  path: "wordpress-cdk/*.tgz"
+                  path: "*.tgz"
             - run: echo "tag=${GITHUB_REF##*/v}" >> $GITHUB_ENV
             - name: Upload package to release
               uses: actions/upload-release-asset@v1
@@ -46,8 +46,8 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-                  asset_path: "undefinedfn/undefinedfn-wordpress-cdk-${{ env.tag }}.tgz"
-                  asset_name: "undefinedfn-wordpress-cdk-${{ env.tag }}.tgz"
+                  asset_path: "undefinedfn-cdk-wordpress-${{ env.tag }}.tgz"
+                  asset_name: "undefinedfn-cdk-wordpress-${{ env.tag }}.tgz"
                   asset_content_type: application/zip
 
             - run: echo ${{ steps.create_release.outputs.id }} >> release.txt
