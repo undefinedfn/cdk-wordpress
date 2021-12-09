@@ -2,9 +2,9 @@ name: Publish a release
 
 on:
     push:
-        tags:
-            - v* #version is cut
-
+        branches: [main]
+    pull_request:
+        branches: [main]
 env:
     NODE_VERSION: 14
 
