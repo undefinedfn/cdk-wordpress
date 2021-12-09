@@ -19,8 +19,7 @@
         "inlineSources": true,
         "experimentalDecorators": true,
         "strictPropertyInitialization": false,
-        "typeRoots": ["./node_modules/@types"],
-        "noEmit": true
+        "typeRoots": ["./node_modules/@types"]
     },
     "include": ["./src/**/*.ts"],
     "exclude": ["node_modules", "cdk.out"]

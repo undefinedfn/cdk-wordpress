@@ -12,14 +12,15 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "noUnusedParameters": true,
         "resolveJsonModule": true,
         "strict": true,
         "strictNullChecks": true,
         "strictPropertyInitialization": true,
         "stripInternal": true,
-        "target": "ES2018"
+        "target": "ES2018",
+        "noEmit": true
     },
     "include": ["src/**/*.ts", "test/**/*.ts"],
     "exclude": ["node_modules"]

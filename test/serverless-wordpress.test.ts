@@ -1,17 +1,32 @@
-import * as cdk from "aws-cdk-lib";
 import { Template } from "aws-cdk-lib/assertions";
-import { ServerlessWordpress } from "../lib/index";
+import { IntegTesting } from "../src/integ.default";
 
-//Tests For VPC
-test("VPC For Serverless Database Created", () => {
-    //Make CDK app, and inject it into the cloudformation stack
-    const app = new cdk.App();
-    const stack = new cdk.Stack(app, "TestStack");
+describe("Resources Should Be Created", () => {
+    //Tests For VPC
+    test("VPC For Wordpress Task Is Created", () => {
+        const integ = new IntegTesting();
 
-    //Does not actually create a resource
-    new ServerlessWordpress(stack, "MyTestConstruct");
-    //This will give us a serialized representation of the Cloudformation
-    const template = Template.fromStack(stack);
-    //Ensure we have a VPC Resource
-    template.hasResource("AWS::EC2::VPC", {});
+        integ.stack.map((stack) => {
+            const template = Template.fromStack(stack);
+            template.hasResource("AWS::EC2::VPC", {});
+        });
+    });
+
+    test("Database Resource Is Created", () => {
+        const integ = new IntegTesting();
+
+        integ.stack.map((stack) => {
+            const template = Template.fromStack(stack);
+            template.hasResource("AWS::RDS::DBInstance", {});
+        });
+    });
+
+    test("ECS Cluster Resource is Created", () => {
+        const integ = new IntegTesting();
+
+        integ.stack.map((stack) => {
+            const template = Template.fromStack(stack);
+            template.hasResource("AWS::ECS::Cluster", {});
+        });
+    });
 });
