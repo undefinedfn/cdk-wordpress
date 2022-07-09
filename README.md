@@ -8,7 +8,7 @@ Represents all the resources needed to run a wordpress instance, including:
 
 ## Usage
 
-Install the wordpress cdk component
+Install the aws-cdk, create a project, and add the wordpress conststruct to it. 
 
 ```
 $ npm install @undefinedfn/wordpress-cdk
